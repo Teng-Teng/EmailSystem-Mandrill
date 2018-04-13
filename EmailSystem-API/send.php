@@ -36,7 +36,7 @@ class send {
 				'html' => $result['content'],
 				'subject' => $result['name'],
 				'from_email' => 'postman@sunnyfuture.ca',
-				'from_name' => 'jack',
+				'from_name' => 'Donald Trump',
 				'to' => array(
 		            array(
 		                'email' => $recipient,
@@ -45,7 +45,6 @@ class send {
 		        ),
 				'headers' => array(
 					'Reply-To' => 'tteng1992@gmail.com'
-
 				),
 				'important' => true,
 		        'track_opens' => true,
@@ -67,11 +66,9 @@ class send {
 		    		));
 		}
 	}
-
-	
 }
 
 
 
 
- ?>
+

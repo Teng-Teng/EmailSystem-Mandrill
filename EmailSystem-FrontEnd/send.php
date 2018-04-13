@@ -1,6 +1,5 @@
 <?php 
 
-echo 'send.php';
 
 
 
@@ -48,30 +47,32 @@ echo 'send.php';
     		"http://192.168.33.10/EmailSystem-Mandrill/EmailSystem-API/templates/get",
     		function(data) {
     			$.each(data, function(key, value) {
-    				var tname = value.name;
-    				var tvars = value.var;
-    				var tid = value.id;
-    				var tcontent = value.content;
+                    var tname = value.name;
+                    var tvars = value.var;
+                    var tid = value.id;
+                    var tcontent = value.content;
 
-    				var htmlForEachTemplate = 
-	    				`
+                    var htmlForEachTemplate =
+                        `
 						<div>
 							<h3> template name: ` + tname + ` </h3>
 							<label> recipient: </label>
-							<input id="rcpt`+ tid + `" class="rcpt form-control" 
+							<input id="rcpt`+ tid + `" class="rcpt form-control"
 							type="text">
 							<button class="btn btn-primary tbutton" data-id="
 							` + tid + `">
 								Send
 							</button>
-						</div>	
+						</div>
 
 	    				`;
-	    			$('.content').append(htmlForEachTemplate);
-    			});
+                    $('.content').append(htmlForEachTemplate);
+                });
 
     			$('.tbutton').click(function(e) {
     				var tid = $(this).data('id');
+    				tid = tid.substring(4);
+    				console.log(typeof(tid));
     				var trcpt = $(this).prev('.rcpt').val();
     				$.post(
     					"http://192.168.33.10/EmailSystem-Mandrill/EmailSystem-API/send",
